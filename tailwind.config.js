@@ -37,7 +37,7 @@ module.exports = {
 
           "neutral": "#F3F4F6",
 
-          "base-100": "#000000",
+          "base-100": "#1F2937",
 
           "info": "#98A8DD",
 
@@ -51,4 +51,4 @@ module.exports = {
     ],
   },
   plugins: [require("daisyui")],
-}
+};
