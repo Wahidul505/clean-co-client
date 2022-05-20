@@ -8,6 +8,9 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login";
 import Services from "./pages/Services";
 import SignUp from "./pages/SignUp";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Users from './pages/Dashboard/Users';
+import RequireAdmin from "./auth/RequireAdmin";
 
 
 function App() {
@@ -23,6 +26,11 @@ function App() {
           {/* Protected Routes  */}
           <Route element={<RequireAuth />}>
             <Route path="/services" element={<Services />} />
+            <Route path="/dashboard" element={<Dashboard />} >
+              <Route path="users" element={<RequireAdmin>
+                <Users />
+              </RequireAdmin>} />
+            </Route>
           </Route>
         </Routes>
       </Navbar>

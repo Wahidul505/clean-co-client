@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import bucketGirl from '../../assets/images/bucketgirl.png';
 
 const Landing = () => {
+    const navigate = useNavigate();
     return (
         <div>
             <div class="hero bg-accent mt-6 pb-20 lg:pb-0">
@@ -11,7 +13,7 @@ const Landing = () => {
                         <p className='text-xl'>Best Quality</p>
                         <h1 class="text-5xl font-bold">Professional Cleaning Service</h1>
                         <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                        <button class="btn btn-primary uppercase">Get Started</button>
+                        <button onClick={()=> navigate('/services')} class="btn btn-primary uppercase">Get Started</button>
                     </div>
                 </div>
             </div>

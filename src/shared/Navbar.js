@@ -18,6 +18,7 @@ const Navbar = ({ children }) => {
             <li><NavLink className='rounded-lg' to='/about'>About</NavLink></li>
             <li><NavLink className='rounded-lg' to='/services'>Services</NavLink></li>
             <li><NavLink className='rounded-lg' to='/contact'>Contact</NavLink></li>
+            <li><NavLink className='rounded-lg' to='/dashboard'>Dashboard</NavLink></li>
             {user ? <li><button onClick={handleSignOut} className='btn btn-outline btn-secondary'>SignOut</button></li>
                 :
                 <li><NavLink className='btn btn-outline btn-secondary' to='/login'>Login</NavLink></li>

@@ -2,13 +2,13 @@ import React from 'react';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 
-const PickDate = ({ day, setDay }) => {
+const PickDate = ({ date, setDate }) => {
     return (
         <div>
             <DayPicker
                 mode="single"
-                selected={day}
-                onSelect={setDay}
+                selected={date}
+                onSelect={setDate}
             />
         </div>
     );
