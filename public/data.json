@@ -1,0 +1,62 @@
+[
+    {
+        "name": "washing car",
+        "price": 340,
+        "slots": [
+            "08.00 AM - 09.00 AM",
+            "09.00 AM - 10.00 AM",
+            "10.00 AM - 11.00 AM",
+            "11.00 AM - 12.00 AM"
+        ]
+    },
+    {
+        "name": "washing cloths and laundry",
+        "price": 150,
+        "slots": [
+            "08.00 AM - 09.00 AM",
+            "09.00 AM - 10.00 AM",
+            "10.00 AM - 11.00 AM",
+            "11.00 AM - 12.00 AM"
+        ]
+    },
+    {
+        "name": "House Cleaning",
+        "price": 230,
+        "slots": [
+            "08.00 AM - 09.00 AM",
+            "09.00 AM - 10.00 AM",
+            "10.00 AM - 11.00 AM",
+            "11.00 AM - 12.00 AM"
+        ]
+    },
+    {
+        "name": "Garden Cleaning",
+        "price": 490,
+        "slots": [
+            "08.00 AM - 09.00 AM",
+            "09.00 AM - 10.00 AM",
+            "10.00 AM - 11.00 AM",
+            "11.00 AM - 12.00 AM"
+        ]
+    },
+    {
+        "name": "Teaching how to clean",
+        "price": 560,
+        "slots": [
+            "08.00 AM - 09.00 AM",
+            "09.00 AM - 10.00 AM",
+            "10.00 AM - 11.00 AM",
+            "11.00 AM - 12.00 AM"
+        ]
+    },
+    {
+        "name": "Advance course on cleaning",
+        "price": 750,
+        "slots": [
+            "08.00 AM - 09.00 AM",
+            "09.00 AM - 10.00 AM",
+            "10.00 AM - 11.00 AM",
+            "11.00 AM - 12.00 AM"
+        ]
+    }
+]

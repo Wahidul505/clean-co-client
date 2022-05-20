@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import SocialLogin from './SocialLogin';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import toast from 'react-hot-toast';
 import useToken from '../hooks/useToken';
@@ -10,34 +10,34 @@ import useToken from '../hooks/useToken';
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [
-        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
         user,
         ,
         error,
-    ] = useSignInWithEmailAndPassword(auth);
-    const location = useLocation();
+    ] = useCreateUserWithEmailAndPassword(auth);
     const navigate = useNavigate();
-    const from = location.state?.from?.pathname || '/';
+
     const [token] = useToken(user);
 
     useEffect(() => {
         if (token) {
-            navigate(from, { replace: true });
-        }
+            navigate('/');
+        };
         if (error) {
-            toast.error(error.message, { id: 'loginError' });
+            toast.error(error.message, { id: 'signupError' });
         }
-    }, [token, error, navigate, from]);
+    }, [token, error, navigate]);
 
     const onSubmit = data => {
-        signInWithEmailAndPassword(data.email, data.password);
+        createUserWithEmailAndPassword(data.email, data.password);
     };
+
 
     return (
         <div class="hero min-h-screen bg-base-200">
             <div class="hero-content flex-col lg:flex-row-reverse">
                 <div class="text-center lg:text-left">
-                    <h1 class="text-5xl font-bold">Login now!</h1>
+                    <h1 class="text-5xl font-bold">SignUp now!</h1>
                     <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                 </div>
                 <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -90,11 +90,11 @@ const Login = () => {
                                 {errors.password?.type === 'required' && <small className='text-red-500'>{errors.password.message}</small>}
                                 {errors.password?.type === 'pattern' && <small className='text-red-500'>{errors.password.message}</small>}
                                 <label class="label">
-                                    <small className='underline text-primary'><Link to='/signup'>Create an Account</Link></small>
+                                    <small className='underline text-primary'><Link to='/login'>Login to Your Account</Link></small>
                                 </label>
                             </div>
                             <div class="form-control mt-6">
-                                <input className='btn btn-primary' type="submit" value="Login" />
+                                <input className='btn btn-primary' type="submit" value="Signup" />
                             </div>
                         </form>
                         <SocialLogin />

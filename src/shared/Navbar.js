@@ -1,22 +1,27 @@
+import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink } from 'react-router-dom';
+import auth from '../firebase.init';
 
 const Navbar = ({ children }) => {
     const [dark, setDark] = useState(false);
+    const [user] = useAuthState(auth);
+
+    const handleSignOut = () => {
+        signOut(auth);
+    }
+
     const menuItems =
         <>
             <li><NavLink className='rounded-lg' to='/'>Home</NavLink></li>
             <li><NavLink className='rounded-lg' to='/about'>About</NavLink></li>
-            <li><NavLink className='rounded-lg' to='/service'>Service</NavLink></li>
+            <li><NavLink className='rounded-lg' to='/services'>Services</NavLink></li>
             <li><NavLink className='rounded-lg' to='/contact'>Contact</NavLink></li>
-            <li><NavLink className='rounded-lg' to='/login'>Login</NavLink></li>
-            <div class="dropdown dropdown-hover dropdown-end">
-                <label tabindex="0" class="btn m-1 btn-outline btn-primary rounded-lg uppercase text-sm">Book Now</label>
-                <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                    <li><a>Item 1</a></li>
-                    <li><a>Item 2</a></li>
-                </ul>
-            </div>
+            {user ? <li><button onClick={handleSignOut} className='btn btn-outline btn-secondary'>SignOut</button></li>
+                :
+                <li><NavLink className='btn btn-outline btn-secondary' to='/login'>Login</NavLink></li>
+            }
             <label class='swap swap-rotate'>
                 <input type='checkbox' onClick={() => setDark(!dark)} />
 
